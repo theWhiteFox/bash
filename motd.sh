@@ -30,6 +30,7 @@ if [[ $last_date < $today ]]; then
 	finalcut=$(echo $cutpun | cut -d '&' -f1)
 	#echo $finalcut
 	#wirte the new motd file, useing colored fonts
+	# add update messages about auto backup and auto update .
 	echo "$(tput setaf 3)
 	Wellcome to the JaGoPi Server.
 
