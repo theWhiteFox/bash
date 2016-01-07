@@ -10,3 +10,6 @@ Bash scripts to automate my frequent jobs.
 	-UFW Firewall - opens ports 80, 22 and range based on ip addesss
 	-static ip set up
 	-
+5.Safe Remove - This program is a safe alternative to the Linux and Unix rm comand.
+		This program will instead of deleting items, will move them to a Recycle Bin to 
+		be deleted at a later stage.
