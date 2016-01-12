@@ -7,9 +7,8 @@
 d=`date +%d%m%Y`
 
 #echo to log file that the update process has started
-echo "update started at" `date` >> /home/jagopi/log.txt
-#update repos 
-sudo apt-get update
-#update the pi
-sudo apt-get upgrade -y
-#sudo reboot
+echo "update started at" `date` >> /home/jim/log.txt
+#update repos and upgrade
+sudo apt-get update && sudo apt-get upgrade -y
+echo "update finished at" `date` >> /home/jim/log.txt
+sudo reboot
