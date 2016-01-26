@@ -24,6 +24,9 @@ if [[ $last_date < $today ]]; then
                 	PUNLINE=$line
         	fi
 	done < temp.txt
+	# add log file 
+	LOGFILE=$(tail -4 /home/jim/log.txt) 
+	echo $LOGFILE  > templogfile.txt
 	
 	#cut the pun out of the line of text
 	cutpun=$(echo $PUNLINE | cut -d ';' -f2)
@@ -31,6 +34,7 @@ if [[ $last_date < $today ]]; then
 	#echo $finalcut
 	#wirte the new motd file, useing colored fonts
 	# add update messages about auto backup and auto update .
+	#add last log messages from log file
 	echo "$(tput setaf 3)
 	Wellcome to the JaGoPi Server.
 
@@ -40,8 +44,11 @@ if [[ $last_date < $today ]]; then
 	$(tput setaf 1)
 
 	IP Addresses.......: `/sbin/ifconfig eth0 | /bin/grep "inet addr" | /usr/bin/cut -d ":" -f 2 | /usr/bin/cut -d " " -f 1`
-
+	$(tput sgr0)
+	Update and Upgrade Logs :
+	$LOGFILE
 	$(tput sgr0)" >> motd.txt
+	#remove temp files
 	sudo mv motd.txt /etc/motd
 	sudo chown root:root /etc/motd
 	sudo rm ~/scripts/bash/temp.txt
