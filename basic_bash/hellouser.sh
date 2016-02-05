@@ -1,0 +1,30 @@
+#! /bin/bash
+#this progam will say hello to the user by name
+#it will also list current users conected to the server and 
+#create some variables and print to screen.
+clear
+echo "Hello $USER,  I am Benzene. The server AI"
+
+
+echo " how was your day today?"
+
+echo " Here is a list of users curently conected to the Server"
+echo 
+w
+echo 
+
+echo "I am now creating some variables and i will print them to to screen when I have completed. "
+echo "Creating a String Variable"
+color="black"
+echo "Creating a Int Variable"
+value=9
+
+echo "I have set up to variables, called color and value"
+
+echo "The color I picked was : $color"
+echo "The int I picked was : $value "
+
+
+echo "That was fun, but I have to go back to work now." 
+echo "LOGGING OFF ;)"
+

@@ -11,4 +11,4 @@ echo "update started at" `date` >> /home/jim/log.txt
 #update repos and upgrade
 sudo apt-get update && sudo apt-get upgrade -y
 echo "update finished at" `date` >> /home/jim/log.txt
-sudo reboot
+#sudo reboot
