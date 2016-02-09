@@ -10,5 +10,6 @@ d=`date +%d%m%Y`
 echo "update started at" `date` >> /home/jim/log.txt
 #update repos and upgrade
 sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get autoremove -y
 echo "update finished at" `date` >> /home/jim/log.txt
 #sudo reboot

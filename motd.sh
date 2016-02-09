@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #--------------------------------#
 #Bash script to change the message of the day. 
 #this script will add a pun fron the pud of the day site below
@@ -51,7 +51,7 @@ if [[ $last_date < $today ]]; then
 	#remove temp files
 	sudo mv motd.txt /etc/motd
 	sudo chown root:root /etc/motd
-	sudo rm ~/scripts/bash/temp.txt
+	sudo rm ~/temp.txt
 
 fi
 #end of program
