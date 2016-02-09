@@ -24,7 +24,7 @@ echo "I have set up to variables, called color and value"
 echo "The color I picked was : $color"			
 echo "The int I picked was : $value "
 
-#return the user to the termail
+#return the user to the terminal
 echo "That was fun, but I have to go back to work now." 
 echo "LOGGING OFF ;)"
 

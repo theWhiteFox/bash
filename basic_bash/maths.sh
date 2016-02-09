@@ -34,4 +34,4 @@ case $cal in
 	*) echo "You have not entered a corect choice";;
 
 esac 
-#ENDL LOOP
+#END LOOP
