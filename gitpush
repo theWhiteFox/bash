@@ -1,0 +1,109 @@
+#!/bin/bash
+#Git Commit Program
+#Author : Jim Gogarty
+#Version : 1.0
+#website : NONE AS YET
+#Report Bugs to github.
+#
+#
+#This program will run the git commit comands for the user
+#user will have to enter username and password at final stage
+#
+#if you would like to have this program as a ready to run program
+#enter the following command
+#
+#export PATH=$PATH:/path/to/dir
+#where "/path/to/dir is where you have located this script
+#
+
+#VARIABLES
+SCRIPTS="/home/jim/scripts"
+SCRIPTS_CHILD="/home/jim/scripts/*"
+MESSAGE=$1
+LOOP=1
+ME=1
+#FUNCTIONS
+
+#git commit and push commands
+function gitpush ()
+{
+	echo "Commiting changes to github"
+	git add .
+	git commit -m "$MESSAGE"
+	git push -u origin master
+}
+
+#check dir 
+function check ()
+{
+	#if working dir is in scripts or in its childern commit changes
+	#if not cd to "scripts folder and continue
+	while [ $LOOP -eq 1 ]; do 
+		if [[ $PWD = $SCRIPTS ]] || [[ $PWD = $SCRIPTS_CHILD ]]  ; then
+			#reasigning value no $ sign needed
+			LOOP=0
+			read	
+			gitpush 
+		else
+			echo "You are not in the Scripts directorys."
+			echo "Would you like to chnge to the folder and commit changes."
+			echo "Enter \"y" for yes or \"n" for no"
+
+			read answer 
+			if [[ $anser = "y" ]] || [[ $answer = "Y" ]] ; then 
+				LOOP=0
+				echo "OK. moving now."
+				cd ~/scripts
+				gitpush
+			elif [[ answer = "n" ]] || [[ anser = "N" ]]; then 
+				echo "Ok. We will now exit the program"
+				LOOP=0
+			else
+				echo "You have not entered a correct option"
+				echo "Please re-enter your choice"
+				read answer2
+				answer = $answer2	
+			fi #anser
+		fi #dir 
+	done #while loop
+}
+
+#MAIN
+clear
+echo "args from the user"
+echo $1
+echo "me = 1"
+echo $ME
+echo "message = test"
+echo $MESSAGE
+read 
+#if no arguments 
+while [ $ME -eq 1 ]; do
+
+	if [ $MESSAGE =  "" ]; then 
+		echo "You have not entered a commit message."
+		echo "Would you like to enter one now ?"
+		echo "Enter \"y" for yes or \"n" for no."
+		read option
+		if [ option = "y" || option = "Y" ]; then
+			echo "Please enter your commit message"
+			read $MESSAGE
+			echo "Your git commit message is : $MESSAGE"
+			ME=0
+			check
+		elif [ option = "n" || option = "N" ]; then
+			echo "The program will now close"
+			ME=O
+
+		else 
+			echo "You have not entered a correct option."
+			echo "Please enter your option again."
+			
+
+		fi
+	else	
+		echo "else there is a argument"
+		ME=0
+		check
+	fi	
+done

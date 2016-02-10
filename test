@@ -1,1 +1,14 @@
-git commit -m "this is a push"
+#!/bin/bash
+a=1
+echo $a
+let "a=2"
+echo $a
+
+
+
+B=100
+
+echo $B
+let B=200
+echo $B
+
