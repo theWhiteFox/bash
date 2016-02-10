@@ -1,11 +1,16 @@
 #!/bin/bash
-function test (){
+function tes (){
 	echo "this is a function"
 	git add .
 	git commit -m "testing"
 	git push -u origin master
 }
+function check (){
+	if [[ $PWD = /home/jim/scripts/* ]]; then
+		echo "I am in the scripts folder"
 
+	fi
+}
 
 echo $("date")
 touch file
@@ -17,4 +22,6 @@ else
 
 fi
 #git push origin master
-test 
+tes
+check
+
