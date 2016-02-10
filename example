@@ -1,0 +1,20 @@
+#!/bin/bash
+function test (){
+	echo "this is a function"
+	git add .
+	git commit -m "testing"
+	git push -u origin master
+}
+
+
+echo $("date")
+touch file
+mv file file.copy
+if [ -f file.copy ]; then
+	echo "it worked"
+else
+	echo "shit"
+
+fi
+#git push origin master
+test 
