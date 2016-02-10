@@ -47,15 +47,15 @@ function check ()
 		else
 			echo "You are not in the Scripts directorys."
 			echo "Would you like to chnge to the folder and commit changes."
-			echo "Enter \"y" for yes or \"n" for no"
+			echo "Enter \"y\" for yes or \"n\" for no"
 
 			read answer 
-			if [[ $anser = "y" ]] || [[ $answer = "Y" ]] ; then 
+			if [ $anser = "y" ] ; then 
 				LOOP=0
 				echo "OK. moving now."
 				cd ~/scripts
 				gitpush
-			elif [[ answer = "n" ]] || [[ anser = "N" ]]; then 
+			elif [ answer = "n" ]; then 
 				echo "Ok. We will now exit the program"
 				LOOP=0
 			else
@@ -76,24 +76,28 @@ echo "me = 1"
 echo $ME
 echo "message = test"
 echo $MESSAGE
-read 
+read
 #if no arguments 
 while [ $ME -eq 1 ]; do
-
-	if [ $MESSAGE =  "" ]; then 
+	#-z will check if the variable $MESSAGE is a null value
+	if [ -z $MESSAGE ]; then 
 		echo "You have not entered a commit message."
 		echo "Would you like to enter one now ?"
 		echo "Enter \"y" for yes or \"n" for no."
 		read option
-		if [ option = "y" || option = "Y" ]; then
+		if [ $option = "y" ] || [ $option = "Y" ]; then
 			echo "Please enter your commit message"
 			read $MESSAGE
 			echo "Your git commit message is : $MESSAGE"
 			ME=0
 			check
-		elif [ option = "n" || option = "N" ]; then
+		elif [ $option = "n" ]; then
 			echo "The program will now close"
-			ME=O
+			ME=0
+		elif [ $option -eq "" ]; then
+			echo "null"
+			echo "You have not entered a correct option."
+                        echo "Please enter your option again."
 
 		else 
 			echo "You have not entered a correct option."
