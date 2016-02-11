@@ -19,7 +19,7 @@
 #VARIABLES
 SCRIPTS="/home/jim/scripts"
 SCRIPTS_CHILD="/home/jim/scripts/*"
-MESSAGE=$1
+MESSAGE="'$@'"
 LOOP=1
 ME=1
 #FUNCTIONS
@@ -76,12 +76,12 @@ echo "me = 1"
 echo $ME
 echo "message = test"
 echo $MESSAGE
-read
+read -p "enter"
 #if no arguments 
 while [ $ME -eq 1 ]; do
 	#-z will check if the variable $MESSAGE is a null value
 	if [ -z $MESSAGE ]; then
-		echo $MESSAGE 
+		 
 		echo "You have not entered a commit message."
 		echo "Would you like to enter one now ?"
 		echo "Enter \"y" for yes or \"n" for no."
@@ -96,7 +96,7 @@ while [ $ME -eq 1 ]; do
 			echo "The program will now close"
 			ME=0
 		elif [ $option -eq "" ]; then
-			echo "null"
+			
 			echo "You have not entered a correct option."
                         echo "Please enter your option again."
 
@@ -107,7 +107,7 @@ while [ $ME -eq 1 ]; do
 
 		fi
 	else	
-		echo "else there is a argument"
+		
 		ME=0
 		check
 	fi	
