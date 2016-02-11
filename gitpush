@@ -42,7 +42,7 @@ function check ()
 		if [[ $PWD = $SCRIPTS ]] || [[ $PWD = $SCRIPTS_CHILD ]]  ; then
 			#reasigning value no $ sign needed
 			LOOP=0
-			read	
+			read -p "press any key"	
 			gitpush 
 		else
 			echo "You are not in the Scripts directorys."
@@ -80,7 +80,8 @@ read
 #if no arguments 
 while [ $ME -eq 1 ]; do
 	#-z will check if the variable $MESSAGE is a null value
-	if [ -z $MESSAGE ]; then 
+	if [ -z $MESSAGE ]; then
+		echo $MESSAGE 
 		echo "You have not entered a commit message."
 		echo "Would you like to enter one now ?"
 		echo "Enter \"y" for yes or \"n" for no."
