@@ -47,17 +47,17 @@ function check ()
 		else
 			echo "You are not in the Scripts directorys."
 			echo "Would you like to chnge to the folder and commit changes."
-			read -p  "Enter \"y\" for yes or \"n\" for no" answer
+			read -p  "Enter \"y\" for yes or \"n\" for no." answer
 			if [ $anser = "y" ] ; then 
 				LOOP=0
 				cd ~/scripts
 				gitpush
 			elif [ answer = "n" ]; then 
-				echo "Ok. We will now exit the program"
+				echo "Ok. We will now exit the program."
 				LOOP=0
 			else
-				echo "You have not entered a correct option"
-				echo "Please re-enter your choice"
+				echo "You have not entered a correct option."
+				echo "Please re-enter your choice."
 				read answer2
 				answer = $answer2	
 			fi #anser
@@ -74,12 +74,12 @@ while [ $ME -eq 1 ]; do
 		 
 		echo "You have not entered a commit message."
 		echo "Would you like to enter one now ?"
-		read -p  "Enter \"y\" for yes or \"n\" for no.\n" option
+		read -p  "Enter \"y\" for yes or \"n\" for no.  " option
 		if [ $option = "y" ]; then
-			read -p  "Please enter your commit message.\n" commitMessage
+			read -p  "Please enter your commit message. " commitMessage
 			
-			echo "Your git commit message is : $commitMessage \n"
-			MESSAGE=$"commitMessagge"	
+			echo "Your git commit message is : $commitMessage"
+			MESSAGE="$commitMessage"
 			ME=0
 			check
 		elif [ $option = "n" ]; then
