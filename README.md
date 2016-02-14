@@ -23,3 +23,5 @@ Bash scripts to automate my frequent jobs.
 8. basic_bash -In this Dir you will find basic and intermedate examples of Bash
 	- Classes
 	- 
+##Links	
+[Bash-Prog-Intro-HOWTO](http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html)
